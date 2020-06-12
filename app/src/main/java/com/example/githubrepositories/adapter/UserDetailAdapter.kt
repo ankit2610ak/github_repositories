@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.githubrepositories.R
@@ -30,11 +31,15 @@ class UserDetailAdapter(
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val userDetails = usersArrayList[position]
         Glide.with(context).load(userDetails.avatar_url).into(holder.userPhoto)
+        holder.login.text = userDetails.login
+        holder.type.text = userDetails.type
 
     }
 
     class CustomViewHolder(itemLayoutView: View) : RecyclerView.ViewHolder(itemLayoutView) {
         var userPhoto: ImageView = itemLayoutView.findViewById(R.id.userPhoto)
+        var login: TextView = itemLayoutView.findViewById(R.id.login)
+        var type: TextView = itemLayoutView.findViewById(R.id.type)
 
     }
 
