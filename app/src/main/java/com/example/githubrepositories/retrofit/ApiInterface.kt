@@ -10,6 +10,6 @@ interface ApiInterface {
     }
 
     @GET(USER)
-    fun getUserDetails(): Call<UserDetails>
+    fun getUserDetails(): Call<ArrayList<UserDetails>>
 
 }
