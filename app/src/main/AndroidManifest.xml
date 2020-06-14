@@ -10,8 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".RepoDetailsActivity"></activity>
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        <activity android:name=".RepoDetailsActivity" />
         <activity android:name=".RepoActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

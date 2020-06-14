@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -26,7 +28,6 @@ class UserDetailAdapter :
 
     }
 
-
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val user = getItem(position)
         user?.let { holder.bind(it) }
@@ -37,6 +38,7 @@ class UserDetailAdapter :
         var userPhoto: ImageView = itemLayoutView.findViewById(R.id.userPhoto)
         var login: TextView = itemLayoutView.findViewById(R.id.login)
         var type: TextView = itemLayoutView.findViewById(R.id.type)
+        var cardView: ConstraintLayout = itemLayoutView.findViewById(R.id.user_layout)
 
         fun bind(user: UserDetails) {
             login.text = user.login
@@ -44,7 +46,7 @@ class UserDetailAdapter :
             Glide.with(userPhoto.context)
                 .load(user.avatar_url)
                 .into(userPhoto)
-            itemView.setOnClickListener {
+            cardView.setOnClickListener {
                 val intent = Intent(it.context, RepoActivity::class.java).apply {
                     putExtra("login", user.login)
                 }
