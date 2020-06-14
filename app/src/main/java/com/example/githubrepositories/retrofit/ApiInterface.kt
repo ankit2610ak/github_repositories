@@ -1,5 +1,6 @@
 package com.example.githubrepositories.retrofit
 
+import com.example.githubrepositories.model.RepoDetails
 import com.example.githubrepositories.model.Repos
 import com.example.githubrepositories.model.UserDetails
 import retrofit2.Call
@@ -18,5 +19,11 @@ interface ApiInterface {
     fun getRepos(
         @Path("login") login: String
     ): Call<ArrayList<Repos>>
+
+    @GET("repos/{login}/{name}")
+    fun getRepoDetails(
+        @Path("login") login: String,
+        @Path("name") name: String
+    ): Call<RepoDetails>
 
 }
