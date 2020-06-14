@@ -6,6 +6,7 @@ import com.example.githubrepositories.model.UserDetails
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiInterface {
     companion object {
@@ -13,7 +14,9 @@ interface ApiInterface {
     }
 
     @GET(USER)
-    fun getUserDetails(): Call<ArrayList<UserDetails>>
+    fun getUserDetails(
+        @Query("page") page: Int
+    ): Call<ArrayList<UserDetails>>
 
     @GET("users/{login}/repos")
     fun getRepos(
